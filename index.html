@@ -38,10 +38,13 @@
     }"
         class="card"
       >
-        <div class="input">
-          <input type="text" x-model="url" placeholder="Enter URL" />
-          <button @click="generateQRCode(url)">Generate</button>
-        </div>
+        <p class="p-bold">
+          Try QR Code Generator today and take your website to the next level!
+        </p>
+        <p class="p-light">
+          Generate a QR code for your website to quickly access your website
+          using mobile devices.
+        </p>
         <div class="image">
           <img
             x-ref="qrimage"
@@ -52,13 +55,10 @@
           />
           <div id="caption" class="caption">https://yahyaqr.github.io/</div>
         </div>
-        <p class="p-bold">
-          Try QR Code Generator today and take your website to the next level!
-        </p>
-        <p class="p-light">
-          Generate a QR code for your website to quickly access your website
-          using mobile devices.
-        </p>
+        <div class="input">
+          <input type="text" x-model="url" placeholder="Enter URL" />
+          <button @click="generateQRCode(url)">Generate</button>
+        </div>
       </div>
     </div>
   </body>
