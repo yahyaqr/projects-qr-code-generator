@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | QR code component</title>
+
+    <!-- Include Alpine.js from a CDN -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div
+        x-data="{
+        url: 'https://yahyaqr.github.io/',
+        qrCodeUrl: './images/image-qr-codex.png',
+        generateQRCode(url) {
+            var qrCodeUrl =
+            'https://api.qrserver.com/v1/create-qr-code/?color=fff&bgcolor=2C7DFA&size=200x200&data=' +
+            encodeURIComponent(url);
+            this.qrCodeUrl = qrCodeUrl;
+            document.getElementById('caption').innerText = url;
+        }
+    }"
+        class="card"
+      >
+        <div class="input">
+          <input type="text" x-model="url" placeholder="Enter URL" />
+          <button @click="generateQRCode(url)">Generate</button>
+        </div>
+        <div class="image">
+          <img
+            x-ref="qrimage"
+            x-bind:src="qrCodeUrl"
+            alt="QR Code"
+            x-show="qrCodeUrl"
+            class="qrimage"
+          />
+          <div id="caption" class="caption">https://yahyaqr.github.io/</div>
+        </div>
+        <p class="p-bold">
+          Try QR Code Generator today and take your website to the next level!
+        </p>
+        <p class="p-light">
+          Generate a QR code for your website to quickly access your website
+          using mobile devices.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
